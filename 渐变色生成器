@@ -1,0 +1,22 @@
+function gradientColor(startRGB, endRGB, step) {
+//渐变色生成器
+    startR = startRGB[0];
+    startG = startRGB[1];
+    startB = startRGB[2];
+
+    endR = endRGB[0];
+    endG = endRGB[1];
+    endB = endRGB[2];
+
+    sR = (endR - startR) / step;//颜色个数
+    sG = (endG - startG) / step;
+    sB = (endB - startB) / step;
+
+    var colorArr = [];
+    for (var i = 0; i < step; i++) {
+        //计算每一步的hex值
+        var hex = 'rgb('+ parseInt((sR * i + startR))+ ',' + parseInt((sG * i + startG))+ ',' + parseInt((sB * i + startB)) + ')';
+        colorArr.push(hex);
+    }
+    return colorArr;
+}
